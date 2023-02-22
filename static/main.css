@@ -4,6 +4,10 @@ body {
   margin-top: 5rem;
 }
 
+a {
+    text-decoration: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
@@ -26,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .author-link {
     text-decoration: none;
-    transition: 0.15s ease all;
+    transition: 0.15s ease color;
 }
 
 .content-section {
@@ -40,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 .article-title {
   color: #444444;
   text-decoration: none;
-  transition: 0.15s ease all;
+  transition: 0.15s ease color;
 }
 
 a.article-title:hover {
