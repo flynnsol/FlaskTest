@@ -1,7 +1,8 @@
 import jwt
 from datetime import datetime
-from flaskblog import db, login_manager, app
+from flaskblog import db, login_manager
 from flask_login import UserMixin
+from flask import current_app
 
 
 @login_manager.user_loader
@@ -22,7 +23,7 @@ class User(db.Model, UserMixin):
             {
                 "user_id": self.id
             },
-            app.config['SECRET_KEY'],
+            current_app.config['SECRET_KEY'],
             algorithm="HS256"
         )
         return reset_token
@@ -32,7 +33,7 @@ class User(db.Model, UserMixin):
         try:
             user_id = jwt.decode(
                 token,
-                app.config['SECRET_KEY'],
+                current_app.config['SECRET_KEY'],
                 algorithms=["HS256"]
             )['user_id']
         except:
